@@ -1,9 +1,8 @@
-# C214 Project
+# DocHub
 
-This repository contains the code for C214 - Engenharia de Software project.
+DocHub is a solution to save you time and headaches. Remember when you had to access a website and you had to provide it with lots of documents? Or worse: you didn't even had those documents at hand and had to rush to search them?
 
-# TODO: REMOVE
-# O que é o projeto, Funcionalidades, Ferramentas e Tecnologias Utilizadas (explicar sobre cada uma delas e o motivo da escolha) e Equipe.
+Considering all this, DocHub is a Hub of Documents. it stores all documents you want and you can use it anytime! Stop loosing huge amounts of time searching for those documents, filling out forms and make your life easier with DocHub!
 
 <h4 align="left"> 
 	Authors :pencil2:
