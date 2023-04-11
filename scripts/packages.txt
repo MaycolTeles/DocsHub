@@ -3,3 +3,5 @@ flake8
 pre-commit
 pylint
 pyright
+pytest
+pytest-cov
