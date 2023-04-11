@@ -12,7 +12,7 @@ tests: lint
 	python3.10 -m pytest -vv --cov=. --cov-report=html --cov-config=.coveragerc
 
 run:
-	python3.10 app/main.py
+	python3.10 app/run.py
 
 ## remove build artifacts
 clean-build:
