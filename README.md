@@ -108,5 +108,3 @@ To check the technical information in details you can check [this docs](docs/tec
 
 *********************
 ## Final Considerations :pushpin: <a name="final-considerations"></a>
-
-To create the "Aula" entity, a builder could be used. Also, the project's architecture and design could be improved as well.
