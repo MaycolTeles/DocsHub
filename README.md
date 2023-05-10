@@ -1,8 +1,8 @@
 # DocHub
 
-DocHub is a solution to save you time and headaches. Remember when you had to access a website and you had to provide it with lots of documents? Or worse: you didn't even had those documents at hand and had to rush to search them?
+DocHub is a solution to save you time and headaches. Remember when you had to access a website and you had to provide it with lots of documents? Or worse: you didn't even have those documents at hand and had to rush to search for them?
 
-Considering all this, DocHub is a Hub of Documents. it stores all documents you want and you can use it anytime! Stop loosing huge amounts of time searching for those documents, filling out forms and make your life easier with DocHub!
+Considering all this, DocHub is a Hub of Documents. it stores all documents you want and you can use them anytime! Stop losing huge amounts of time searching for those documents and filling out forms! Make your life easier with DocHub!
 
 <h4 align="left"> 
 	Authors :pencil2:
@@ -69,6 +69,10 @@ To install all the necessary project dependencies, run the following command in 
 pip install -r requirements.txt
 ```
 
+*********************
+
+## How To Use :man_technologist: <a name="how-to-use"></a>
+
 ### Executing the Project :arrow_forward:
 To run the application, you can use the Makefile to run it by running:
 
@@ -82,29 +86,50 @@ or you can use the Python interpreter directly by running:
 python app/run.py
 ```
 
-*********************
+### Changing the UI/Database
+To change the application's UI or Database, you need to open the `dependencies.py` module located inside `dependencies` package. When you open it, you must change the variables `USER_INTERFACE_INJECTION` and `REPOSITORY_INJECTION` to the ones you want. For example, in case you want to use Flask and MySQL, you must have something like so:
 
-## How To Use :man_technologist: <a name="how-to-use"></a>
+```python
+USER_INTERFACE_INJECTION = FlaskUserInterface()
+REPOSITORY_INJECTION = MySQLRepository()
+```
 
-# TODO
+But if you want to use a Desktop UI (using Tkinter) and a repository in memo, you must do like so:
+
+```python
+USER_INTERFACE_INJECTION = TkinterUserInterface()
+REPOSITORY_INJECTION = InMemoRepository()
+```
+
+and so on.
+
 *********************
 
 ##  Technical Information :pencil: <a name="technical-information"></a>
 
-The application is writting in Python, using concepts of:
+### Concepts
+
+The application is written in Python, using concepts of:
 * Clean Architecture
 * Clean Code
 * SOLID
 * TDD
 
+### Technologies
 Some of the technologies are listed below:
-* Flask
-* Django
-* SQLite
-* MySQL
-* MongoDB
 
-To check the technical information in details you can check [this docs](docs/technical_information.md).
+#### UI
+* Django
+* Flask
+* Tkinter
+
+#### Repository
+* In Memory
+* MongoDB
+* MySQL
+* SQLite
+
+To check the technical information in detail you can check [this docs](docs/technical_information.md).
 
 *********************
 ## Final Considerations :pushpin: <a name="final-considerations"></a>
