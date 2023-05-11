@@ -20,11 +20,37 @@ class CPF(Document):
 
     def __init__(self, value: str, date: datetime) -> None:
         """
+        Constructor of the class.
+
+        Parameters
+        ----------
+        value : str
+            The value of the CPF.
+
+        date : datetime
+            The date of the CPF.
         """
-        cpf_only_numbers = "".join(filter(str.isdigit, value))
+        cpf_only_numbers = self._get_only_cpf_numbers(value)
         self._cpf_value = cpf_only_numbers
 
         super().__init__(date)
+
+    def _get_only_cpf_numbers(self, value: str) -> str:
+        """
+        Private Method to get only the CPF numbers.
+
+        Parameters
+        ----------
+        value : str
+            The value of the CPF.
+
+        Returns
+        -------
+        str
+            The CPF numbers.
+        """
+        cpf_numbers = "".join(filter(str.isdigit, value))
+        return cpf_numbers
 
     def _validate_document(self) -> None:
         """
@@ -34,14 +60,14 @@ class CPF(Document):
 
     def _validate_cpf(self) -> None:
         """
-        Protected Method to validate the cpf by raising an exception if it's not valid.
+        Private Method to validate the cpf by raising an exception if it's not valid.
         """
         self._validate_length()
         self._validate_digits()
 
     def _validate_length(self) -> None:
         """
-        Private Method to validate the cpf length by raising an InvalidCPFException exception
+        Private Method to validate the CPF length by raising an InvalidCPFException exception
         if its length is not valid.
 
         Raises
