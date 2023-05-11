@@ -1,5 +1,5 @@
 """
-Module containing the CPF class.
+Module containing the "CPF" class.
 """
 
 from datetime import datetime
