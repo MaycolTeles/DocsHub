@@ -41,33 +41,7 @@ First off, in order to get a copy of the project to run/test it, clone the repos
 git clone git@github.com:MaycolTeles/projeto_c214.git
 ```
 
-### Creating and Activating the Virtual Environment :open_file_folder:
-It is recommended to install the dependencies inside a [virtualenv](https://docs.python.org/3/tutorial/venv.html). So, inside the folder where you cloned the repository, create a new virtualenv:
-
-```
-python3 -m virtualenv venv
-```
-    
-Then, activate the virtualenv (for Linux/MacOS):
-
-```
-source venv/bin/activate
-```
-
-or (for Windows):
-
-```
-venv\Scripts\activate
-```
-
-if you're having some problems with the `virtualenv` or wants to learn more, check [this docs](docs/virtualenv.md).
-
-### Installing Dependencies :wrench:
-To install all the necessary project dependencies, run the following command in the terminal (but first make sure you're running it from whithin the virtualenv):
-
-```
-pip install -r requirements.txt
-```
+### TODO: ADD SECTION TO RUN USING `start_project.sh` SCRIPT
 
 *********************
 
