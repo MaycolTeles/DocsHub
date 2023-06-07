@@ -41,7 +41,9 @@ First off, in order to get a copy of the project to run/test it, clone the repos
 git clone git@github.com:MaycolTeles/projeto_c214.git
 ```
 
-### TODO: ADD SECTION TO RUN USING `start_project.sh` SCRIPT
+### TODO: ADD SECTION TO SET UP USING `start_project.sh` SCRIPT
+
+### TODO: ADD SECTION TO RUN USING `DOCKER`
 
 *********************
 
