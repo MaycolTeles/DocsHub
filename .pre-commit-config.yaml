@@ -28,14 +28,3 @@ repos:
       language: system
       types: [python]
       stages: [commit]
-
--   repo: local
-    hooks:
-    - id: pytest
-      name: pytest
-      language: system
-      entry: pytest
-      always_run: true
-      pass_filenames: false
-      stages: [commit]
-      args: [-vv, --cov=., --cov-config=.coveragerc]
