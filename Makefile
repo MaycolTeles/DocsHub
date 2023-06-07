@@ -8,11 +8,16 @@ lint:
 	python3.10 -m flake8 app/ --config=.flake8
 	python3.10 -m pylint app/ --rcfile=.pylintrc
 
-tests: lint
+tests:
+	python3.10 -m pytest -vv
+
+coverage:
 	python3.10 -m pytest -vv --cov=. --cov-report=html --cov-config=.coveragerc
 
+deploy: lint tests coverage
+
 run:
-	python3.10 app/run.py
+	python3 -m app.run
 
 ## remove build artifacts
 clean-build:
