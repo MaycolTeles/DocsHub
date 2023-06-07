@@ -29,14 +29,14 @@ jobs:
     - name: Upload test report
       uses: actions/upload-artifact@v3
       with:
-        name: pytest-test-report
-        path: test_report/test-report.html
+        name: test-report
+        path: test_report/
 
     - name: Upload test coverage report
       uses: actions/upload-artifact@v3
       with:
-        name: pytest-coverage-report
-        path: htmlcov/index.html
+        name: test-coverage-report
+        path: htmlcov/
 
   lint:
     runs-on: ubuntu-latest
