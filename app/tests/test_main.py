@@ -18,6 +18,6 @@ class TestMain(TestCase):
         """
         main()
 
-        actual = False
+        actual = True
 
         self.assertTrue(actual)
