@@ -5,8 +5,8 @@ Module containing the RGTestCase class.
 from datetime import datetime, timedelta
 from unittest import TestCase
 
-from src.domain.entities.documents.cpf import CPF
-from src.domain.entities.documents.rg import RG, InvalidRGException
+from src.domain.documents.cpf import CPF
+from src.domain.documents.rg import RG, InvalidRGException
 
 
 class RGTestCase(TestCase):

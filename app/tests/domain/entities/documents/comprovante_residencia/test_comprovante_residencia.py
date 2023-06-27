@@ -5,7 +5,7 @@ Module containing the ComprovanteResidenciaTestCase Test Class.
 from datetime import datetime, timedelta
 from unittest import TestCase
 
-from src.domain.entities.documents.comprovante_residencia import (
+from src.domain.documents.comprovante_residencia import (
     ComprovanteResidencia,
     ComprovanteResidenciaType,
     InvalidComprovanteResidenciaException

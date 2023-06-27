@@ -5,9 +5,9 @@ Module containing the "RG" class.
 from typing import Optional
 from datetime import datetime
 
-from .exceptions import InvalidRGException
-from ..cpf import CPF
-from ..document import Document
+from ..exceptions import InvalidRGException
+from src.domain.documents import Document
+from src.domain.documents.cpf import CPF
 
 
 class RG(Document):

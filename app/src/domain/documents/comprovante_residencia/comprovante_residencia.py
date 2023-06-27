@@ -6,7 +6,7 @@ from datetime import datetime
 
 from .comprovante_residencia_types import ComprovanteResidenciaType
 from .exceptions import InvalidComprovanteResidenciaException
-from ..document import Document
+from src.domain.documents import Document
 
 
 class ComprovanteResidencia(Document):

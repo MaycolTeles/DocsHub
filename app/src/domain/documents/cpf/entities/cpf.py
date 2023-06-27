@@ -4,8 +4,8 @@ Module containing the "CPF" class.
 
 from datetime import datetime
 
-from .exceptions import InvalidCPFException
-from ..document import Document
+from ..exceptions import InvalidCPFException
+from src.domain.documents import Document
 
 
 _CPF_LENGTH = 11

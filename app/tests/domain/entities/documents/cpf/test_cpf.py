@@ -5,7 +5,7 @@ Module containing the CPFTestCase class.
 from datetime import datetime
 from unittest import TestCase
 
-from src.domain.entities.documents.cpf import CPF, InvalidCPFException
+from src.domain.documents.cpf import CPF, InvalidCPFException
 
 
 class CPFTestCase(TestCase):
