@@ -7,7 +7,6 @@ repos:
     entry: flake8
     language: system
     types: [python]
-    stages: [commit]
     args: ['app', '--config', '.flake8']
 
   - id: pylint
@@ -15,7 +14,6 @@ repos:
     entry: pylint
     language: system
     types: [python]
-    stages: [commit]
     args: ['app', '--rcfile', '.pylintrc']
 
   - id: pyright
@@ -23,5 +21,4 @@ repos:
     entry: pyright
     language: system
     types: [python]
-    stages: [commit]
     args: ['app']
