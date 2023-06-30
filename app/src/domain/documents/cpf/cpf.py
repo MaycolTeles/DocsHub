@@ -54,13 +54,13 @@ class CPF(Document):
 
     def _validate_document(self) -> None:
         """
-        Protected Method to validate the document by raising an exception if it's not valid.
+        Protected Method to validate the document by raising an exception if it"s not valid.
         """
         self._validate_cpf()
 
     def _validate_cpf(self) -> None:
         """
-        Private Method to validate the cpf by raising an exception if it's not valid.
+        Private Method to validate the cpf by raising an exception if it"s not valid.
         """
         self._validate_length()
         self._validate_digits()
@@ -184,7 +184,13 @@ class CPF(Document):
         if self._date > datetime.now():
             invalid_date_message = (
                 f"CPF is invalid. "
-                f"Date can't be newer than current date (date={self._date})."
+                f"Date can"t be newer than current date (date={self._date})."
             )
 
             raise InvalidCPFException(invalid_date_message)
+
+    def to_dict(self):
+        return {
+            "value": self._cpf_value,
+            "date": self._date.strftime("%Y-%m-%d"),
+        }

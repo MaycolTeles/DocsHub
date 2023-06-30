@@ -45,7 +45,7 @@ class RG(Document):
 
     def _validate_document(self) -> None:
         """
-        Protected method to validate the document by raising an exception if it's not valid.
+        Protected method to validate the document by raising an exception if it"s not valid.
         """
         self._validate_rg()
 
@@ -67,6 +67,16 @@ class RG(Document):
 
         invalid_date_message = (
             "RG is invalid. "
-            f"Date can't be newer than current date (date={self._date})."
+            f"Date can"t be newer than current date (date={self._date})."
         )
         raise InvalidRGException(invalid_date_message)
+
+    def to_dict(self):
+        """
+        Method to convert the object to a dict.
+        """
+        return {
+            "value": self._rg_value,
+            "date": self._date.strftime("%Y-%m-%d"),
+            "cpf": self._cpf.to_dict() if self._cpf else None
+        }
