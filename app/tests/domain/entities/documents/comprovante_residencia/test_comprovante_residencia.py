@@ -35,7 +35,7 @@ class ComprovanteResidenciaTestCase(TestCase):
 
         self.assertTrue(actual)
 
-    def test_should_raise_exception_when_creating_comprovante_residencia_with_invalid_date(self) -> None:
+    def test_should_raise_exception_when_creating_comprovante_residencia_with_future_date(self) -> None:
         """
         Method to assert the ComprovanteResidencia raised an exception when trying to create it
         because it has invalid parameters (date is newer than current date).
@@ -52,6 +52,9 @@ class ComprovanteResidenciaTestCase(TestCase):
             )
 
         actual = exception.exception.args[0]
-        expected = f"Comprovante de Residência is invalid. Date can't be newer than current date (date={test_datetime})"
+        expected = (
+            "Comprovante de Residência is invalid. "
+            f"Date can't be newer than current date (date={test_datetime})."
+        )
 
         self.assertEqual(actual, expected)

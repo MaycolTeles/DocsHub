@@ -3,14 +3,14 @@ __init__ file to export the classes below.
 """
 
 from .register_comprovante_residencia import (
-    RegisterComprovanteResidenciaUseCase,
-    RegisterComprovanteResidenciaRequestModel,
-    RegisterComprovanteResidenciaResponseModel
+    RegisterComprovanteResidencia,
+    RegisterComprovanteResidenciaRequest,
+    RegisterComprovanteResidenciaResponse
 )
 
 
 __all__ = [
-    "RegisterComprovanteResidenciaUseCase",
-    "RegisterComprovanteResidenciaRequestModel",
-    "RegisterComprovanteResidenciaResponseModel",
+    "RegisterComprovanteResidencia",
+    "RegisterComprovanteResidenciaRequest",
+    "RegisterComprovanteResidenciaResponse",
 ]

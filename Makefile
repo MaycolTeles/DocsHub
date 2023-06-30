@@ -11,16 +11,16 @@ lint:
 
 tests:
 	@echo "RUNNING TESTS WITH PYTEST"
-	@python3.10 -m pytest -vv
+	@python -m pytest -vv
 
 coverage:
-	python3.10 -m pytest -vv --cov=. --cov-report=html --cov-config=.coveragerc
+	python -m pytest -vv --cov=. --cov-report=html --cov-config=.coveragerc
 
 deploy: lint tests coverage
 
 run:
 	@echo "RUNNING APP"
-	@cd app && python3 -m run
+	@cd app && python -m run
 
 ## remove build artifacts
 clean-build:

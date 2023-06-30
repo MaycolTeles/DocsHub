@@ -13,8 +13,7 @@ class Document(ABC):
     _date: datetime
 
     def __init__(self, date: datetime) -> None:
-        """
-        """
+        """TODO"""
         self._date = date
 
         self._validate_document()

@@ -33,7 +33,7 @@ class RGTestCase(TestCase):
     def test_should_create_a_valid_rg_with_cpf(self) -> None:
         """
         Method to assert the RG was correctly created because it has valid parameters
-        and it has a valid CPF attached to it.
+        and it has a valid RG attached to it.
         """
         test_valid_rg_string = "123456789"
         test_datetime = datetime.now()
@@ -71,6 +71,6 @@ class RGTestCase(TestCase):
             )
 
         actual = exception.exception.args[0]
-        expected = f"RG is invalid. The date {test_future_datetime} must be in the past."
+        expected = f"RG is invalid. Date can't be newer than current date (date={test_future_datetime})."
 
         self.assertEqual(actual, expected)

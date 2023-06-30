@@ -1,5 +1,5 @@
 """
-Module containing the RegisterComprovanteResidenciaRequestModel class.
+Module containing the RegisterComprovanteResidenciaRequest class.
 """
 
 from dataclasses import dataclass
@@ -10,7 +10,7 @@ from src.domain.interfaces import ResponseModel
 
 
 @dataclass
-class RegisterComprovanteResidenciaRequestModel(ResponseModel):
+class RegisterComprovanteResidenciaRequest(ResponseModel):
     """
     Class containing the request model for the RegisterComprovanteResidenciaUseCase class.
     """

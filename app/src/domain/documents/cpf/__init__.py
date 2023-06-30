@@ -2,11 +2,15 @@
 __init__ file to export the classes below.
 """
 
-from .entities import CPF
+from .cpf import CPF
 from .exceptions import InvalidCPFException
+from .use_cases import RegisterCPF, RegisterCPFRequest, RegisterCPFResponse
 
 
 __all__ = [
     "CPF",
-    "InvalidCPFException"
+    "InvalidCPFException",
+    "RegisterCPF",
+    "RegisterCPFRequest",
+    "RegisterCPFResponse",
 ]
