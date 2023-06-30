@@ -5,7 +5,7 @@ Module containing the "CPF" class.
 from datetime import datetime
 
 from .exceptions import InvalidCPFException
-from ..document import Document
+from src.domain.documents import Document
 
 
 _CPF_LENGTH = 11
@@ -64,6 +64,7 @@ class CPF(Document):
         """
         self._validate_length()
         self._validate_digits()
+        self._validate_date()
 
     def _validate_length(self) -> None:
         """
@@ -169,3 +170,21 @@ class CPF(Document):
 
         invalid_length_message = f"CPF {self._cpf_value} is not a valid CPF."
         raise InvalidCPFException(invalid_length_message)
+
+    def _validate_date(self) -> None:
+        """
+        Private Method to validate the cpf date by raising an InvalidCPFException exception
+        if its date is not valid.
+
+        Raises
+        --------
+        InvalidCPFException
+            If the cpf date is not valid.
+        """
+        if self._date > datetime.now():
+            invalid_date_message = (
+                f"CPF is invalid. "
+                f"Date can't be newer than current date (date={self._date})."
+            )
+
+            raise InvalidCPFException(invalid_date_message)

@@ -6,8 +6,8 @@ from typing import Optional
 from datetime import datetime
 
 from .exceptions import InvalidRGException
-from ..cpf import CPF
-from ..document import Document
+from src.domain.documents import Document
+from src.domain.documents.cpf import CPF
 
 
 class RG(Document):
@@ -29,8 +29,8 @@ class RG(Document):
         date : datetime
             The date of the RG.
 
-        cpf : Optional[CPF]
-            The CPF of the RG, by default None
+        rg : Optional[CPF]
+            The value of the CPF, by default None
         """
         self._rg_value = value
         self._cpf = cpf
@@ -39,7 +39,7 @@ class RG(Document):
 
     def get_cpf(self) -> Optional[CPF]:
         """
-        Public Method to get the CPF.
+        Public Method to get the RG.
         """
         return self._cpf
 
@@ -65,5 +65,8 @@ class RG(Document):
         if self._date <= current_date:
             return
 
-        invalid_date_message = f"RG is invalid. The date {self._date} must be in the past."
+        invalid_date_message = (
+            "RG is invalid. "
+            f"Date can't be newer than current date (date={self._date})."
+        )
         raise InvalidRGException(invalid_date_message)

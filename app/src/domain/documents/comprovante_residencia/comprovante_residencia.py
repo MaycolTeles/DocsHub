@@ -6,7 +6,7 @@ from datetime import datetime
 
 from .comprovante_residencia_types import ComprovanteResidenciaType
 from .exceptions import InvalidComprovanteResidenciaException
-from ..document import Document
+from src.domain.documents import Document
 
 
 class ComprovanteResidencia(Document):
@@ -53,6 +53,6 @@ class ComprovanteResidencia(Document):
         if self._date > datetime.now():
             exception_message = (
                 "Comprovante de Residência is invalid. "
-                f"Date can't be newer than current date (date={self._date})"
+                f"Date can't be newer than current date (date={self._date})."
             )
             raise InvalidComprovanteResidenciaException(exception_message)

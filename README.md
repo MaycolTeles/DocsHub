@@ -109,3 +109,5 @@ To check the technical information in detail you can check [this docs](docs/tech
 
 *********************
 ## Final Considerations :pushpin: <a name="final-considerations"></a>
+
+### TODO: May be add a EntityDTO to send the DTO directly to database?

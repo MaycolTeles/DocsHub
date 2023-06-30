@@ -2,10 +2,10 @@
 Module containing the CPFTestCase class.
 """
 
-from datetime import datetime
+from datetime import datetime, timedelta
 from unittest import TestCase
 
-from src.domain.entities.documents.cpf import CPF, InvalidCPFException
+from src.domain.documents.cpf import CPF, InvalidCPFException
 
 
 class CPFTestCase(TestCase):
@@ -83,5 +83,21 @@ class CPFTestCase(TestCase):
 
         actual = exception.exception.args[0]
         expected = f"CPF {test_invalid_cpf_string} is not a valid CPF."
+
+        self.assertEqual(actual, expected)
+
+    def test_should_raise_an_error_when_creating_cpf_with_future_date(self):
+        """TODO"""
+        test_valid_cpf_string = "11144477735"
+        test_datetime = datetime.now() + timedelta(days=1)
+
+        with self.assertRaises(InvalidCPFException) as exception:
+            _ = CPF(
+                value=test_valid_cpf_string,
+                date=test_datetime
+            )
+
+        actual = exception.exception.args[0]
+        expected = f"CPF is invalid. Date can't be newer than current date (date={test_datetime})."
 
         self.assertEqual(actual, expected)
