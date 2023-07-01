@@ -71,6 +71,6 @@ class RGTestCase(TestCase):
             )
 
         actual = exception.exception.args[0]
-        expected = f"RG is invalid. Date can"t be newer than current date (date={test_future_datetime})."
+        expected = f"RG is invalid. Date can't be newer than current date (date={test_future_datetime})."
 
         self.assertEqual(actual, expected)

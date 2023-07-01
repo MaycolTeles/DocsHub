@@ -2,14 +2,22 @@
 TODO
 """
 
+from .contants import REPOSITORY
 from src.application.infra.repositories import InMemoRepository
+from src.application.infra.repositories import MySQLRepository
 
 
-REPOSITORY = InMemoRepository()
+repository = InMemoRepository()
+
+if REPOSITORY == "inmemo":
+    repository = InMemoRepository()
+
+elif REPOSITORY == "mysql":
+    repository = MySQLRepository()
 
 
 def get_repository():
     """
     Function to get the repository.
     """
-    return REPOSITORY
+    return repository

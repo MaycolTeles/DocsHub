@@ -14,7 +14,7 @@ class RG(Document):
     """
     Class to represent a RG.
     """
-    _rg_value: str
+    _value: str
     _cpf: Optional[CPF]
 
     def __init__(self, value: str, date: datetime, cpf: Optional[CPF] = None) -> None:
@@ -32,7 +32,7 @@ class RG(Document):
         rg : Optional[CPF]
             The value of the CPF, by default None
         """
-        self._rg_value = value
+        self._value = value
         self._cpf = cpf
 
         super().__init__(date)
@@ -67,7 +67,7 @@ class RG(Document):
 
         invalid_date_message = (
             "RG is invalid. "
-            f"Date can"t be newer than current date (date={self._date})."
+            f"Date can't be newer than current date (date={self._date})."
         )
         raise InvalidRGException(invalid_date_message)
 
@@ -76,7 +76,7 @@ class RG(Document):
         Method to convert the object to a dict.
         """
         return {
-            "value": self._rg_value,
+            "value": self._value,
             "date": self._date.strftime("%Y-%m-%d"),
             "cpf": self._cpf.to_dict() if self._cpf else None
         }

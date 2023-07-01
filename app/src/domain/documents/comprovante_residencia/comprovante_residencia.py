@@ -53,7 +53,7 @@ class ComprovanteResidencia(Document):
         if self._date > datetime.now():
             exception_message = (
                 "Comprovante de Residência is invalid. "
-                f"Date can"t be newer than current date (date={self._date})."
+                f"Date can't be newer than current date (date={self._date})."
             )
             raise InvalidComprovanteResidenciaException(exception_message)
 

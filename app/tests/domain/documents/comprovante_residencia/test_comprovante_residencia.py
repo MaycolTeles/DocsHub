@@ -54,7 +54,7 @@ class ComprovanteResidenciaTestCase(TestCase):
         actual = exception.exception.args[0]
         expected = (
             "Comprovante de Residência is invalid. "
-            f"Date can"t be newer than current date (date={test_datetime})."
+            f"Date can't be newer than current date (date={test_datetime})."
         )
 
         self.assertEqual(actual, expected)

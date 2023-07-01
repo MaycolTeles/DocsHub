@@ -6,8 +6,6 @@ from typing import Any, Optional, Union
 from contextlib import contextmanager
 
 import mysql.connector as mysql
-from mysql.connector import MySQLConnection
-from mysql.connector.cursor_cext import CMySQLCursor
 
 from .constants import HOST, USER, PASSWORD, PORT, DATABASE
 from src.domain.documents import Document
@@ -21,15 +19,12 @@ def connect():
 
     This function should be used as a context manager.
     """
-    connection: MySQLConnection
-    cursor: CMySQLCursor
-
     try:
         connection = mysql.connect(
             host=HOST,
             user=USER,
             password=PASSWORD,
-            PORT=PORT,
+            port=PORT,
             database=DATABASE
         )
 
@@ -41,7 +36,7 @@ def connect():
         print("ERROR!")
         print(error)
 
-    finally:
+    else:
         connection.commit()
         cursor.close()
         connection.close()
@@ -51,46 +46,6 @@ class MySQLRepository(Repository):
     """
     TODO
     """
-
-    def __init__(self) -> None:
-        """
-        TODO
-        """
-        self._create_tables()
-
-    def _create_tables(self) -> None:
-        """
-        TODO
-        """
-        query = """
-            CREATE TABLE IF NOT EXISTS `comprovante_residencia` (
-                `id` INT NOT NULL AUTO_INCREMENT,
-                `value` VARCHAR(255) NOT NULL,
-                `date` DATE NOT NULL,
-                PRIMARY KEY (`id`)
-            )
-        """
-        self._execute_query(query)
-
-        query = """
-            CREATE TABLE IF NOT EXISTS `cpf` (
-                `id` INT NOT NULL AUTO_INCREMENT,
-                `value` VARCHAR(255) NOT NULL,
-                `date` DATE NOT NULL,
-                PRIMARY KEY (`id`)
-            )
-        """
-        self._execute_query(query)
-
-        query = """
-            CREATE TABLE IF NOT EXISTS `rg` (
-                `id` INT NOT NULL AUTO_INCREMENT,
-                `value` VARCHAR(255) NOT NULL,
-                `date` DATE NOT NULL,
-                PRIMARY KEY (`id`)
-            )
-        """
-        self._execute_query(query)
 
     def _execute_query(
         self,
@@ -120,14 +75,14 @@ class MySQLRepository(Repository):
         if params is None:
             params = []
 
-        res = None
+        response = None
 
         with connect() as cursor:
             cursor.execute(query, params)
 
-            res = cursor.fetchall()
+            response = cursor.fetchall()
 
-        return res
+        return response
 
     def create(self, request: dict[str, Union[str, Document]]) -> Any:
         """
@@ -160,7 +115,8 @@ class MySQLRepository(Repository):
             WHERE
                 `id` = %s
         """
-        values = [request.get("id")]
+        id = int(request.get("id", 0)) + 1
+        values = [id]
 
         response = self._execute_query(query, values)
         return response
@@ -183,7 +139,7 @@ class MySQLRepository(Repository):
         TODO
         """
         document = request.get("type")
-        id = request.get("id")
+        id = int(request.get("id")) + 1
 
         query = f"""
             UPDATE `{document}`
@@ -206,7 +162,7 @@ class MySQLRepository(Repository):
         TODO
         """
         document = request.get("type")
-        id = request.get("id")
+        id = int(request.get("id")) + 1
 
         query = f"""
             DELETE FROM `{document}`

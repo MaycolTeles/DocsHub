@@ -83,7 +83,7 @@ class CreateComprovanteResidenciaTestCase(TestCase):
 
         expected_message = (
             "Comprovante de Residência is invalid. "
-            f"Date can"t be newer than current date (date={date_in_future})."
+            f"Date can't be newer than current date (date={date_in_future})."
         )
         expected = ComprovanteResidenciaResponse(False, expected_message)
 

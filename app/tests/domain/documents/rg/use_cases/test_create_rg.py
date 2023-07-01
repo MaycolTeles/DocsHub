@@ -73,7 +73,7 @@ class CreateRGTestCase(TestCase):
 
         actual = self._use_case.execute(request)
 
-        expected_message = f"RG is invalid. Date can"t be newer than current date (date={date_in_future})."
+        expected_message = f"RG is invalid. Date can't be newer than current date (date={date_in_future})."
         expected = RGResponse(False, expected_message)
 
         self.assertEqual(actual, expected)

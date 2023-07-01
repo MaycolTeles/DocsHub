@@ -71,7 +71,7 @@ class CreateCPFTestCase(TestCase):
 
         actual = self._use_case.execute(request)
 
-        expected_message = f"CPF is invalid. Date can"t be newer than current date (date={date_in_future})."
+        expected_message = f"CPF is invalid. Date can't be newer than current date (date={date_in_future})."
         expected = CPFResponse(False, expected_message)
 
         self.assertEqual(actual, expected)

@@ -98,6 +98,6 @@ class CPFTestCase(TestCase):
             )
 
         actual = exception.exception.args[0]
-        expected = f"CPF is invalid. Date can"t be newer than current date (date={test_datetime})."
+        expected = f"CPF is invalid. Date can't be newer than current date (date={test_datetime})."
 
         self.assertEqual(actual, expected)
